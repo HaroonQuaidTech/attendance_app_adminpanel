@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "122564826045",
+    "project_id": "quaidtech-61fea",
+    "storage_bucket": "quaidtech-61fea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122564826045:android:d653acb0a4992fbb5ff8d4",
+        "android_client_info": {
+          "package_name": "com.example.quaidtech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaXso-XIk26vJnSiyKWX3roAwSqOM_q4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
