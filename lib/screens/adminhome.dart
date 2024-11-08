@@ -19,10 +19,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
-   String dropdownValue1 = 'Admin';
-  
-
-  
+  String dropdownValue1 = 'Admin';
 
   int _selectedIndex = 0;
 
@@ -119,39 +116,39 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                               ],
                             ),
                             const Spacer(),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const NotificationScreen(),
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xffE6E8FD),
-                                        borderRadius: BorderRadius.circular(12),
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            color: Colors.black12,
-                                            offset: Offset(2, 2),
-                                            blurRadius: 4,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Image.asset(
-                                          'assets/notification_icon.png',
-                                          height: 30,
-                                          width: 30,
-                                        ),
-                                      ),
-                                    ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const NotificationScreen(),
                                   ),
+                                );
+                              },
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xffE6E8FD),
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Colors.black12,
+                                      offset: Offset(2, 2),
+                                      blurRadius: 4,
+                                    ),
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Image.asset(
+                                    'assets/notification_icon.png',
+                                    height: 30,
+                                    width: 30,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ]),
                           SizedBox(
                             height: 30,
@@ -177,7 +174,8 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             'Upload File',
@@ -186,14 +184,16 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
-                                          Icon(Icons.calendar_today, color: Colors.black54),
+                                          Icon(Icons.calendar_today,
+                                              color: Colors.black54),
                                         ],
                                       ),
                                       SizedBox(height: 16),
                                       Container(
                                         height: 150,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                           border: Border.all(
                                             color: Colors.black12,
                                           ),
@@ -201,7 +201,8 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                         ),
                                         child: Center(
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
                                               Icon(
                                                 Icons.insert_drive_file,
@@ -233,14 +234,15 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                         children: [
                                           Expanded(
                                             child: TextButton(
-                                              onPressed: () {
-                                            
-                                              },
+                                              onPressed: () {},
                                               style: TextButton.styleFrom(
-                                                backgroundColor: Colors.grey[200],
-                                                padding: EdgeInsets.symmetric(vertical: 12),
+                                                backgroundColor:
+                                                    Colors.grey[200],
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 12),
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                               child: Text(
@@ -256,10 +258,13 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                             child: ElevatedButton(
                                               onPressed: null,
                                               style: ElevatedButton.styleFrom(
-                                                backgroundColor: Colors.grey[400],
-                                                padding: EdgeInsets.symmetric(vertical: 12),
+                                                backgroundColor:
+                                                    Colors.grey[400],
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 12),
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                               child: Text('Upload'),
@@ -271,76 +276,83 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30,),
-                                  Container(
-                                        height: 119,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Color(0xffEFF1FF),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.grey.withOpacity(0.2),
-                                              spreadRadius: 2,
-                                              blurRadius: 4,
-                                              offset: Offset(0, 2), // changes position of shadow
-                                            ),
-                                          ],
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                height: 119,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xffEFF1FF),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 4,
+                                      offset: Offset(
+                                          0, 2), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0, vertical: 10.0),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Select Employee',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 18),
                                         ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 10.0, vertical: 10.0),
-                                          child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Select Employee',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w600, fontSize: 18),
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  height: 50,
-                                                  padding:
-                                                      EdgeInsets.symmetric(horizontal: 10),
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius: BorderRadius.circular(12),
-                                                  ),
-                                                  child: DropdownButton<String>(
-                                                    value: dropdownValue1,
-                                                    icon: Icon(Icons.arrow_drop_down),
-                                                    iconSize: 24,
-                                                    elevation: 16,
-                                                    isExpanded: true,
-                                                    style: TextStyle(
-                                                        color: Colors.black, fontSize: 16),
-                                                    underline: SizedBox(),
-                                                    onChanged: (String? newValue) {
-                                                      setState(() {
-                                                        dropdownValue1 = newValue!;
-                                                      });
-                                                    },
-                                                    items: <String>[
-                                                      'Admin',
-                                                      'Admin 1',
-                                                       'Admin 2',
-                                                        'Admin 3',
-                                                    ].map<DropdownMenuItem<String>>(
-                                                        (String value) {
-                                                      return DropdownMenuItem<String>(
-                                                        value: value,
-                                                        child: Text(value),
-                                                      );
-                                                    }).toList(),
-                                                  ),
-                                                ),
-                                              ]),
+                                        SizedBox(height: 10),
+                                        Container(
+                                          height: 50,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 10),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                          ),
+                                          child: DropdownButton<String>(
+                                            value: dropdownValue1,
+                                            icon: Icon(Icons.arrow_drop_down),
+                                            iconSize: 24,
+                                            elevation: 16,
+                                            isExpanded: true,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16),
+                                            underline: SizedBox(),
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                dropdownValue1 = newValue!;
+                                              });
+                                            },
+                                            items: <String>[
+                                              'Admin',
+                                              'Admin 1',
+                                              'Admin 2',
+                                              'Admin 3',
+                                            ].map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
                                         ),
-                                      ),
+                                      ]),
+                                ),
+                              ),
                             ],
                           ),
-                           SizedBox(
+                          SizedBox(
                             height: 30,
                           ),
 
@@ -700,7 +712,6 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                     ),
                   ),
       ),
-   
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         child: Container(
