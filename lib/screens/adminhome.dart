@@ -102,7 +102,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Admin',
+                                  'Admintesting',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w600),
