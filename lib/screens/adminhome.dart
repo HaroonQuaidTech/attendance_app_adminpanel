@@ -394,7 +394,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                               PieChartData(
                                                   sections: [
                                                     PieChartSectionData(
-                                                      color: Colors.purple,
+                                                      color: Color(0xff22AF41),
                                                       value: 4,
                                                       title: '',
                                                       radius: 12,
@@ -597,7 +597,9 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                                 width: 53,
                                                 height: 55,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xff8E71DF),
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .surface,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             6)),

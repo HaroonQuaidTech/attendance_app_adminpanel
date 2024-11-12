@@ -10,6 +10,7 @@ import 'package:quaidtech/screens/signup.dart';
 import 'package:quaidtech/screens/splashscreen.dart';
 import 'package:quaidtech/screens/stastics.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:quaidtech/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,9 @@ class _MyAppState extends State<MyApp> {
           .copyWith(textScaler: const TextScaler.linear(1)),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: "KumbhSans"),
+         theme: lightMode.copyWith(
+    textTheme: ThemeData(fontFamily: "KumbhSans").textTheme,
+  ),
         initialRoute: 'adminh',
         routes: {
           'login': (context) => const LoginScreen(),
