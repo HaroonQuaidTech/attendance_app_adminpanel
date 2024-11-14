@@ -49,7 +49,9 @@ class _HomeScreenState extends State<AdminHomeScreen> {
               children: [
                 Icon(
                   icon.icon,
-                  color: isSelected ? Color(0xff7647EB) : Color(0xffA4A4A4),
+                  color: isSelected
+                      ? Theme.of(context).colorScheme.secondary
+                      : Color(0xffA4A4A4),
                 ),
                 SizedBox(
                   width: 5,
@@ -57,7 +59,9 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                 Text(
                   text,
                   style: TextStyle(
-                      color: isSelected ? Color(0xff7647EB) : Color(0xffA4A4A4),
+                      color: isSelected
+                          ? Theme.of(context).colorScheme.secondary
+                          : Color(0xffA4A4A4),
                       fontWeight:
                           isSelected ? FontWeight.bold : FontWeight.normal,
                       fontSize: 18),
@@ -394,7 +398,9 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                               PieChartData(
                                                   sections: [
                                                     PieChartSectionData(
-                                                      color: Color(0xff22AF41),
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .primary,
                                                       value: 4,
                                                       title: '',
                                                       radius: 12,
@@ -430,11 +436,13 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                                     Text(
                                                       '8',
                                                       style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: Color(
-                                                              0xff8E71DF)),
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .secondary,
+                                                      ),
                                                     ),
                                                     Text(
                                                       'Present',
