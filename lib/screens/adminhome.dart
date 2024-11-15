@@ -364,7 +364,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                 height: 30,
                               ),
                               Container(
-                                height: 119,
+                                height: 120,
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
