@@ -6,7 +6,8 @@ import 'package:quaidtech/screens/adminprofile.dart';
 import 'package:quaidtech/screens/adminstastics.dart';
 import 'package:quaidtech/screens/notification.dart';
 import 'package:table_calendar/table_calendar.dart';
-// import 'package:circular_progress_stack/circularprogressstack.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});
@@ -22,6 +23,21 @@ class _HomeScreenState extends State<AdminHomeScreen> {
   String dropdownValue1 = 'Admin';
 
   int _selectedIndex = 0;
+  File? selectedFile;
+  double? uploadProgress;
+
+  Future<void> pickFile() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        selectedFile = File(pickedFile.path);
+      });
+    } else {
+      print("No file selected");
+    }
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -163,6 +179,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                 child: Container(
                                   width: double.infinity,
                                   padding: EdgeInsets.all(16),
+                                  margin: EdgeInsets.symmetric(horizontal: 16),
                                   decoration: BoxDecoration(
                                     color: Color(0xffEFF1FF),
                                     borderRadius: BorderRadius.circular(20),
@@ -177,6 +194,7 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
+                                      // Header Row
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -193,52 +211,92 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                         ],
                                       ),
                                       SizedBox(height: 16),
-                                      Container(
-                                        height: 150,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          border: Border.all(
-                                            color: Colors.black12,
+
+                                      // File Upload Container
+                                      GestureDetector(
+                                        onTap: pickFile,
+                                        child: Container(
+                                          height: 150,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            border: Border.all(
+                                              color: Colors.black12,
+                                            ),
+                                            color: Color(0xffF0F4FF),
                                           ),
-                                          color: Color(0xffF0F4FF),
-                                        ),
-                                        child: Center(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.insert_drive_file,
-                                                size: 40,
-                                                color: Colors.black54,
-                                              ),
-                                              SizedBox(height: 8),
-                                              Text(
-                                                'choose file to upload',
-                                                style: TextStyle(
-                                                  color: Colors.blue,
-                                                  fontSize: 14,
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.insert_drive_file,
+                                                  size: 40,
+                                                  color: Colors.black54,
                                                 ),
-                                              ),
-                                              SizedBox(height: 4),
-                                              Text(
-                                                'Select zip,image,pdf or ms.word',
-                                                style: TextStyle(
-                                                  color: Colors.black45,
-                                                  fontSize: 12,
+                                                SizedBox(height: 8),
+                                                Text(
+                                                  'choose file to upload',
+                                                  style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 14,
+                                                    decoration: TextDecoration
+                                                        .underline,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                                SizedBox(height: 4),
+                                                Text(
+                                                  'Select zip, image, pdf or ms.word',
+                                                  style: TextStyle(
+                                                    color: Colors.black45,
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                       SizedBox(height: 16),
+
+                                      // Display selected file name if available
+                                      if (selectedFile != null)
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 16.0),
+                                          child: Text(
+                                            "Selected File: ${selectedFile!.path.split('/').last}",
+                                            style: TextStyle(
+                                                color: Colors.black87),
+                                          ),
+                                        ),
+
+                                      // Progress bar
+                                      if (uploadProgress != null)
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: LinearProgressIndicator(
+                                            value: uploadProgress,
+                                            backgroundColor: Colors.grey[300],
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+
+                                      // Action Buttons Row
                                       Row(
                                         children: [
                                           Expanded(
                                             child: TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                setState(() {
+                                                  selectedFile =
+                                                      null; // Clear selected file
+                                                  uploadProgress =
+                                                      null; // Reset upload progress
+                                                });
+                                              },
                                               style: TextButton.styleFrom(
                                                 backgroundColor:
                                                     Colors.grey[200],
@@ -260,10 +318,32 @@ class _HomeScreenState extends State<AdminHomeScreen> {
                                           SizedBox(width: 16),
                                           Expanded(
                                             child: ElevatedButton(
-                                              onPressed: null,
+                                              onPressed: selectedFile != null
+                                                  ? () async {
+                                                      // Start uploading and update progress
+                                                      for (double i = 0;
+                                                          i <= 1;
+                                                          i += 0.1) {
+                                                        await Future.delayed(
+                                                            Duration(
+                                                                milliseconds:
+                                                                    200));
+                                                        setState(() {
+                                                          uploadProgress = i;
+                                                        });
+                                                      }
+                                                      // Reset after upload
+                                                      setState(() {
+                                                        selectedFile = null;
+                                                        uploadProgress = null;
+                                                      });
+                                                    }
+                                                  : null, // Disable button if no file is selected
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor:
-                                                    Colors.grey[400],
+                                                    selectedFile != null
+                                                        ? Colors.blue
+                                                        : Colors.grey[400],
                                                 padding: EdgeInsets.symmetric(
                                                     vertical: 12),
                                                 shape: RoundedRectangleBorder(

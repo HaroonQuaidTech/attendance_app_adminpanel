@@ -34,9 +34,9 @@ class _MyAppState extends State<MyApp> {
           .copyWith(textScaler: const TextScaler.linear(1)),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-         theme: lightMode.copyWith(
-    textTheme: ThemeData(fontFamily: "KumbhSans").textTheme,
-  ),
+        theme: lightMode.copyWith(
+          textTheme: ThemeData(fontFamily: "KumbhSans").textTheme,
+        ),
         initialRoute: 'adminh',
         routes: {
           'login': (context) => const LoginScreen(),
@@ -49,7 +49,6 @@ class _MyAppState extends State<MyApp> {
           'stat': (context) => const StatsticsScreen(),
           'adminh': (context) => const AdminHomeScreen(),
           'splash': (context) => const Splashscreen(),
-        
         },
       ),
     );
