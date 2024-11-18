@@ -24,50 +24,6 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
 
   int _selectedIndex = 0;
 
-//----------------------------------------------------------------------------
-
-  // Widget _buildWeeklyAttendance(String text, Color color) {
-  //   return Container(
-  //       padding: EdgeInsets.all(12),
-  //       height: 710,
-  //       width: double.infinity,
-  //       decoration: BoxDecoration(
-  //         borderRadius: BorderRadius.circular(20),
-  //         color: Color(0xffEFF1FF),
-  //         boxShadow: [
-  //           BoxShadow(
-  //             color: Colors.grey.withOpacity(0.2),
-  //             spreadRadius: 2,
-  //             blurRadius: 4,
-  //             offset: Offset(0, 2), // changes position of shadow
-  //           ),
-  //         ],
-  //       ),
-  //       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-  //         Text(
-  //           text,
-  //           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-  //         ),
-  //         SizedBox(
-  //           height: 10,
-  //         ),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //         WeeklyAttendance(text: '01', text1: 'MON', color: color),
-  //         SizedBox(height: 10),
-  //       ]));
-  // }
-
   Widget _buildWeeklyAttendanceEmployee(String text, Color color) {
     return Container(
         padding: EdgeInsets.all(12),
@@ -130,55 +86,50 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
               color: Colors.grey.withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 2), // changes position of shadow
+              offset: Offset(0, 2),
             ),
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center, 
-          children: [
-          Align(
-              alignment: Alignment.topLeft,
-            child: Text(
-              'Absent Employee',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-            ),
-          ),
-       
-         SizedBox(height: 30),
-       
-          Container(
-            width: 127,
-            height: 137,
-            decoration: BoxDecoration(),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(900),
-              child: Image.asset(
-                'assets/img2.png',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Absent Employee',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                ),
               ),
-            ),
-          ),
-                 SizedBox(height: 10),
-             Text(
-                         'Perfect Attendance',
-                         style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                       ),
-                 
-                              Text(
-                         'No Employees are Absent Today!',
-                         style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                         textAlign: TextAlign.center,
-                       ),
-                       
-         
-          SizedBox(
-            height: 10,
-          ),
-        ]));
+              SizedBox(height: 30),
+              Container(
+                width: 127,
+                height: 137,
+                decoration: BoxDecoration(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(900),
+                  child: Image.asset(
+                    'assets/img2.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Perfect Attendance',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              ),
+              Text(
+                'No Employees are Absent Today!',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+            ]));
   }
 
   Widget _buildSegment(String text, int index) {
@@ -294,7 +245,7 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
                 ),
                 SizedBox(height: 20),
 
-                //-----------------------------Filter container-----------------------------------------------------------------------------
+                //-----------------------------Filter container------------------------------------
                 if (_selectedIndex != 1)
                   Container(
                     height: 130,
@@ -452,8 +403,6 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
                           ]),
                     ),
                   ),
-                // if (dropdownValue1 == 'Weekly')
-                // StatusBuilderWeekly(),
 
                 SizedBox(
                   height: 20,
@@ -526,9 +475,7 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
                 if (dropdownValue2 == 'Weekly' && _selectedIndex == 1)
                   GraphicalbuilerWeekly(),
                 if (dropdownValue2 == 'Monthly' && _selectedIndex == 1)
-GraphicalbuilerMonthly()
-
-                //-------------------------Weekly Log Times------------------------------------------
+                  GraphicalbuilerMonthly()
               ],
             ),
           ),
