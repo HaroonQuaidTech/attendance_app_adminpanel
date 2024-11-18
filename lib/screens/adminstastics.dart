@@ -21,27 +21,36 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
   String dropdownValue1 = 'Select';
   String dropdownValue2 = 'Select';
   String dropdownValue3 = 'Select';
+  final employees = [
+    {'name': 'Muhammad Abbas', 'role': 'Laravel Developer'},
+    {'name': 'Ayesha Khan', 'role': 'Flutter Developer'},
+    {'name': 'Ali Raza', 'role': 'Backend Engineer'},
+    {'name': 'Sara Ahmed', 'role': 'UI/UX Designer'},
+  ];
 
   int _selectedIndex = 0;
 
-  Widget _buildWeeklyAttendanceEmployee(String text, Color color) {
+  Widget _buildWeeklyAttendanceEmployee(
+      String text, Color color, List<Map<String, String>> employees) {
     return Container(
-        padding: EdgeInsets.all(12),
-        height: 710,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Color(0xffEFF1FF),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: Offset(0, 2), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      padding: EdgeInsets.all(12),
+      height: 420,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Color(0xffEFF1FF),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Text(
             text,
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
@@ -49,28 +58,26 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
           SizedBox(
             height: 10,
           ),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-          Employeeattendance(
-              text: 'Muhammad Abbas', text1: 'Laravel developer'),
-          SizedBox(height: 10),
-        ]));
+          Expanded(
+            child: ListView.builder(
+              itemCount: employees.length,
+              itemBuilder: (context, index) {
+                final employee = employees[index];
+                return Column(
+                  children: [
+                    Employeeattendance(
+                      text: employee['name'] ?? 'Unknown',
+                      text1: employee['role'] ?? 'Unknown Role',
+                    ),
+                    SizedBox(height: 10),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildWeeklyAttendanceEmployeeAbsent() {
@@ -258,7 +265,7 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
                           color: Colors.grey.withOpacity(0.2),
                           spreadRadius: 2,
                           blurRadius: 4,
-                          offset: Offset(0, 2), // changes position of shadow
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
@@ -410,25 +417,35 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
 
                 if (dropdownValue3 == 'Late Arrival' && _selectedIndex != 1)
                   _buildWeeklyAttendanceEmployee(
-                      'Late Arrival Details', Color(0xffF6C15B)),
+                    'Weekly Attendance',
+                    Colors.blue,
+                    employees,
+                  ),
 
                 if (dropdownValue3 == 'Absent' && _selectedIndex != 1)
                   _buildWeeklyAttendanceEmployeeAbsent(),
 
                 if (dropdownValue3 == 'On Time' && _selectedIndex != 1)
                   _buildWeeklyAttendanceEmployee(
-                      'On Time Details', Color(0xff22AF41)),
+                    'Weekly Attendance',
+                    Colors.blue,
+                    employees,
+                  ),
 
                 if (dropdownValue3 == 'Early Out' && _selectedIndex != 1)
                   _buildWeeklyAttendanceEmployee(
-                      'Early Out Details', Color(0xffF07E25)),
+                    'Weekly Attendance',
+                    Colors.blue,
+                    employees,
+                  ),
                 if (dropdownValue3 == 'Present' && _selectedIndex != 1)
                   _buildWeeklyAttendanceEmployee(
-                    'Present Details',
-                    Color(0xff8E71DF),
+                    'Weekly Attendance',
+                    Colors.blue,
+                    employees,
                   ),
 
-                //------------------------------------ygrt----------------------------------------------------
+                //------------------------------------Dropdown----------------------------------------------------
                 if (dropdownValue3 != 'Present' &&
                     dropdownValue3 != 'On Time' &&
                     dropdownValue3 != 'Absent' &&
@@ -445,7 +462,7 @@ class _StatsticsScreenState extends State<AdminStatsticsScreen> {
                           color: Colors.grey.withOpacity(0.2),
                           spreadRadius: 2,
                           blurRadius: 4,
-                          offset: Offset(0, 2), // changes position of shadow
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
